@@ -12,15 +12,17 @@ export class ProductTable extends Component {
   }
 
   render(){
-    function filterProducts(name) {
+    function filterProducts(name, stocked) {
       return function filter(product) {
         let matches = product.name.match(new RegExp(name, "i"));
-        return matches !== null
+        return matches !== null && product.stocked === stocked
       };
     }
 
     let products = data.data;
-    let filteredProducts = products.filter(filterProducts(this.props.textFilter));
+    let filteredProducts = products.filter(
+      filterProducts(this.props.textFilter, this.props.stockFilter)
+    );
 
     return (
       <div>

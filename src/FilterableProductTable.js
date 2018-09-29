@@ -11,16 +11,20 @@ export class FilterableProductTable extends Component {
     this.setState({ textFilter: e.currentTarget.value });
   }
 
+  handleStockFilterChange = (e)  => {
+    this.setState({ stockFilter: e.currentTarget.checked });
+  }
+
   render(){
     return (
       <div className="filterable-product-table">
         <span>
           <input type="text" onChange={this.handleTextFilterChange} />
           <br />
-          <input type="checkbox" value="Submit" />
+          <input type="checkbox" onChange={this.handleStockFilterChange} />
           <label>Only show products in stock</label>
         </span>
-        <ProductTable textFilter={this.state.textFilter}/>
+        <ProductTable textFilter={this.state.textFilter} stockFilter={this.state.stockFilter}/>
       </div>
     )
   }
