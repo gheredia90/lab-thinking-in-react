@@ -3,12 +3,17 @@ import React, { Component } from 'react';
 export class SearchBar extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.setState = {};
   }
 
   render(){
     return (
-      <div >Hola otra vez</div>
+      <span>
+        <input type="text" />
+        <br />
+        <input type="checkbox" value="Submit" />
+        <label>Only show products in stock</label>
+      </span>
     )
   }
 }

@@ -7,8 +7,15 @@ export class ProductRow extends Component {
   }
 
   render(){
+    let color = this.props.stocked ? "green" : "red";
+    let style = {
+      color: color
+    };
+
     return (
-      <div >Hola otra vez</div>
+      <p>
+        <span style={style}>{this.props.name}</span> - <span>{this.props.price}</span>
+      </p>
     )
   }
 }
